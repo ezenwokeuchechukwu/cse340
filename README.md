@@ -8,7 +8,12 @@ The only prerequisite software required to have installed at this point is Git f
 ## Package Management
 
 The foundation of the project development software is Node. While functional, Node depends on "packages" to add functionality to accomplish common tasks. This requires a package manager. Three common managers are NPM (Node Package Manager), YARN, and PNPM. While all do the same thing, they do it slightly differently. We will use PNPM for two reasons: 1) All packages are stored on your computer only once and then symlinks (system links) are created from the package to the project as needed, 2) performance is increased meaning that when the project builds, it does so faster.
-You will need to either install or activate PNPM before using it. See https://pnpm.io/
+You will need to either install
+
+
+
+
+ or activate PNPM before using it. See https://pnpm.io/
 
 ## Install the Project Dependencies
 
