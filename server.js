@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname, "public")))
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // Points to views/layouts/layout.ejs
+app.set('views', path.join(__dirname, 'views'));
 
 /* ***********************
  * Route Definitions
@@ -32,7 +33,6 @@ app.set("layout", "./layouts/layout") // Points to views/layouts/layout.ejs
 app.get("/", (req, res) => {
   res.render("index", { title: "Home" });
 });
-
 
 /* ***********************
  * Local Server Information
