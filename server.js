@@ -18,6 +18,11 @@ app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // not at views root
  *************************/
 app.use(static)
+// Index route
+app.get("/", (req, res) => {
+  res.render("index", { title: "Home" });
+});
+
 
 /* ***********************
  * Local Server Information
