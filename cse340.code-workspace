@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "cse340-1",
+			"path": "../cse340-1"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "cse340-1"
+	}
+}
