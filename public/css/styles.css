@@ -1,6 +1,158 @@
-/******* Change Box Model ***************/
-*,
-*:before,
-*:after {
+/* Basic reset and styling */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+/* Header */
+.header {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 15px 0;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.header .logo {
+  height: 50px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+
+.navbar li {
+  margin-right: 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Main Banner */
+.main-banner {
+  background-image: url('/images/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.main-banner h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.main-banner p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  padding: 15px 30px;
+  background-color: #007BFF;
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+/* Featured Cars */
+.featured-cars {
+  padding: 50px 0;
+  background-color: #fff;
+}
+
+.featured-cars h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.car-item {
+  background-color: #e0e0e0;
+  padding: 20px;
+  text-align: center;
+}
+
+.car-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+.footer {
+  background-color: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Mobile First Styling */
+@media screen and (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+  }
+
+  .navbar li {
+    margin-bottom: 10px;
+  }
+
+  .main-banner h1 {
+    font-size: 2rem;
+  }
+
+  .main-banner p {
+    font-size: 1.2rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .car-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Larger Screen (Desktop) */
+@media screen and (min-width: 1024px) {
+  .car-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
