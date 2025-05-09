@@ -4,7 +4,7 @@
     <%- include('./partials/head') %>
   </head>
   <body>
-    <!-- Main content starts here -->
+    <!-- Header Section with Navigation (only one header and navigation) -->
     <header>
       <%- include('./partials/header') %>
       <%- include('./partials/navigation') %>
@@ -15,12 +15,12 @@
       <div class="banner-text">
         <h1>Welcome to CSE Motors</h1>
         <p>Your dream car is just a click away</p>
-        <a href="#featured-cars" class="cta-button">Browse Cars</a> <!-- Updated link to scroll to the featured section -->
+        <a href="#featured-cars" class="cta-button">Browse Cars</a>
       </div>
     </section>
 
     <!-- Featured Cars Section -->
-    <section class="featured-cars" id="featured-cars"> <!-- Added ID for anchor link -->
+    <section class="featured-cars" id="featured-cars">
       <div class="container">
         <h2>Featured Cars</h2>
         <div class="car-grid">
@@ -40,7 +40,7 @@
       </div>
     </section>
 
-    <!-- Footer Section -->
+    <!-- Footer Section (only one footer) -->
     <footer>
       <%- include('./partials/footer') %>
     </footer>

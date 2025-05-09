@@ -6,78 +6,68 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
   color: #333;
+  line-height: 1.6;
 }
 
-/* Root Variables for Colors */
-:root {
-  --primary-color: #007BFF;
-  --secondary-color: #333;
-  --accent-color: #f39c12;
-  --background-color: #f8f8f8;
-  --header-footer-bg: #2c3e50;
-  --white: #fff;
-}
-
-/* Header and Navigation */
+/* Header Styles */
 header {
-  background-color: var(--header-footer-bg);
-  color: var(--white);
-  padding: 1rem 0;
+  background-color: #2c3e50; /* Dark Blue */
+  color: white;
+  padding: 1rem 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-header .site-name a {
-  color: var(--white);
-  font-size: 2rem;
-  font-weight: bold;
+header .siteName a {
+  color: white;
   text-decoration: none;
-  padding-left: 20px;
-  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-nav {
-  background-color: #34495e;
+header nav {
+  background-color: #34495e; /* Slightly lighter blue */
+  width: 100%;
 }
 
-nav ul {
+header nav ul {
   display: flex;
   justify-content: center;
   list-style: none;
-  padding: 0;
+  padding: 0.5rem 0;
 }
 
-nav ul li {
-  margin: 0 20px;
+header nav ul li {
+  margin: 0 15px;
 }
 
-nav ul li a {
-  color: var(--white);
+header nav ul li a {
+  color: white;
   text-decoration: none;
   font-weight: bold;
-  padding: 10px 15px;
-  transition: background-color 0.3s;
+  transition: color 0.3s;
 }
 
-nav ul li a:hover {
-  background-color: var(--accent-color);
+header nav ul li a:hover {
+  color: #f39c12; /* Hover color */
 }
 
-nav ul li a.active {
+header nav ul li a.active {
   text-decoration: underline;
 }
 
-/* Hero Banner Section */
+/* Hero Section */
 .main-banner {
   background-image: url('/images/banner.jpg');
   background-size: cover;
   background-position: center;
-  color: var(--white);
+  color: white;
   text-align: center;
   padding: 100px 20px;
-  margin-bottom: 40px;
 }
 
 .main-banner h1 {
@@ -92,22 +82,22 @@ nav ul li a.active {
 
 .cta-button {
   padding: 15px 30px;
-  background-color: var(--primary-color);
-  color: var(--white);
-  font-size: 1.1rem;
+  background-color: #007BFF; /* Button Blue */
+  color: white;
+  font-size: 1rem;
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
 
 .cta-button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Darker Blue on hover */
 }
 
 /* Featured Cars Section */
 .featured-cars {
   padding: 50px 20px;
-  background-color: var(--white);
+  background-color: #fff;
 }
 
 .featured-cars h2 {
@@ -146,24 +136,33 @@ nav ul li a.active {
   font-weight: bold;
 }
 
-/* Footer */
+/* Footer Styles */
 footer {
-  background-color: var(--header-footer-bg);
-  color: var(--white);
+  background-color: #2c3e50; /* Same dark blue as the header */
+  color: white;
   text-align: center;
   padding: 20px;
   font-size: 0.9rem;
-  margin-top: 40px;
 }
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
   header {
-    padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header nav ul li {
+    margin-bottom: 10px;
   }
 
   .main-banner h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .main-banner p {
@@ -171,30 +170,7 @@ footer {
   }
 
   .cta-button {
-    padding: 12px 25px;
+    padding: 10px 20px;
     font-size: 1rem;
-  }
-
-  .featured-cars h2 {
-    font-size: 1.75rem;
-  }
-
-  .car-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  .car-item {
-    padding: 15px;
-  }
-}
-
-@media screen and (min-width: 769px) {
-  /* Styles for larger screens, if needed */
-  .main-banner {
-    padding: 120px 20px;
-  }
-
-  .cta-button {
-    padding: 18px 35px;
   }
 }
