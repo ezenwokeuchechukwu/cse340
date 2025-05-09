@@ -1,53 +1,280 @@
-body {
-  font-family: Arial, sans-serif;
+/* Reset */
+* {
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  box-sizing: border-box;
+}
+
+/* Root Variables */
+:root {
+  --primary-color: #1a1a2e;
+  --accent-color: #facc15;
+  --text-color: #333;
+  --background-color: #f0f2f5;
+  --card-bg: #ffffff;
+  --card-hover: #e5e7eb;
+  --shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Base Styles */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
   text-align: center;
 }
 
+/* Header */
 header {
-  background-color: #2c3e50;
+  background-color: var(--primary-color);
   color: white;
-  padding: 1rem;
+  padding: 1rem 20px;
 }
 
-h1 {
-  margin: 0;
+header h1,
+header .site-name a {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
 }
 
-main {
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin-top: 10px;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--accent-color);
+}
+
+/* Hero Section */
+.main-banner {
+  background-image: url('/images/hero-banner.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.main-banner .banner-text h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.main-banner .banner-text p {
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+}
+
+.cta-button {
+  background-color: #2563eb;
+  color: white;
+  padding: 12px 25px;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #1e40af;
+}
+
+/* Featured Cars Section */
+.featured-cars {
+  background-color: var(--card-bg);
+  padding: 60px 20px;
+}
+
+.featured-cars h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.car-item {
+  background-color: var(--card-hover);
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.car-item:hover {
+  transform: scale(1.02);
+}
+
+.car-item img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Card Layout (if used separately) */
+main,
+#cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 20px;
-}
-
-#cards {
-  display: flex;
-  flex-wrap: wrap;
   gap: 20px;
-  justify-content: center;
 }
 
 section {
-  background: white;
+  background: var(--card-bg);
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  box-shadow: var(--shadow);
   width: 300px;
+  transition: transform 0.3s ease;
 }
 
-img {
-  border-radius: 8px;
+section:hover {
+  transform: translateY(-5px);
+}
+
+section img {
   width: 100%;
   height: auto;
+  border-radius: 8px;
 }
 
+/* Footer */
 footer {
-  margin-top: 20px;
-  padding: 10px;
-  background: #2c3e50;
+  background-color: var(--primary-color);
   color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+footer a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .main-banner .banner-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .main-banner .banner-text p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    margin: 8px 0;
+  }
+
+  section {
+    width: 90%;
+  }
+}
+.main-banner {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: 90vh;
+}
+
+.banner-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.banner-text {
+  background-color: #1a1a2e;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+}
+
+.banner-text h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.banner-text p {
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+}
+
+.cta-button {
+  background-color: #2563eb;
+  color: white;
+  padding: 12px 25px;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+}
+
+.cta-button:hover {
+  background-color: #1e40af;
+}
+
+.banner-image {
+  background-image: url('/images/hero-banner.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .banner-content {
+    grid-template-columns: 1fr;
+  }
+
+  .banner-image {
+    height: 300px;
+  }
+
+  .banner-text {
+    text-align: center;
+    align-items: center;
+  }
+
+  .cta-button {
+    align-self: center;
+  }
 }

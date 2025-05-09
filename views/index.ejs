@@ -1,43 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-    <header>
-      <%- include('./partials/header') %>
-      <%- include('./partials/navigation') %>
-    </header>
-  
-    <!-- Hero Banner Section -->
-    <section class="main-banner">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSE Motors</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+  <header>
+    <%- include('./partials/header') %>
+    <%- include('./partials/navigation') %>
+  </header>
+
+  <!-- Hero Banner Section -->
+  <section class="main-banner">
+    <div class="banner-content">
       <div class="banner-text">
         <h1>Welcome to CSE Motors</h1>
         <p>Your dream car is just a click away</p>
         <a href="#featured-cars" class="cta-button">Browse Cars</a>
       </div>
-    </section>
+      <div class="banner-image"></div>
+      <img src="images/site/checkerboard.jpg" alt="Heroimage">
+          <p>background</p>
+    </div>
+  </section>
 
-    <!-- Featured Cars Section -->
-    <section class="featured-cars" id="featured-cars">
-      <div class="container">
-        <h2>Featured Cars</h2>
-        <div class="car-grid">
-          <div class="car-item">
-            <img src="/images/vehicles/camaro.jpg" alt="Luxury Sedan">
-            <p>Luxury Sedan</p>
-          </div>
-          <div class="car-item">
-            <img src="/images/vehicles/batmobile.jpg" alt="Sports Coupe">
-            <p>Sports Coupe</p>
-          </div>
-          <div class="car-item">
-            <img src="/images/vehicles/adventador.jpg" alt="Family SUV">
-            <p>Family SUV</p>
-          </div>
+  <!-- Featured Cars Section -->
+  <section class="featured-cars" id="featured-cars">
+    <div class="container">
+      <h2>Featured Cars</h2>
+      <div class="car-grid">
+        <div class="car-item">
+          <img src="/images/vehicles/camaro.jpg" alt="Luxury Sedan">
+          <p>Luxury Sedan</p>
+        </div>
+        <div class="car-item">
+          <img src="/images/vehicles/batmobile.jpg" alt="Sports Coupe">
+          <p>Sports Coupe</p>
+        </div>
+        <div class="car-item">
+          <img src="/images/vehicles/adventador.jpg" alt="Family SUV">
+          <p>Family SUV</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Footer Section (now combined) -->
-    <footer>
-  
-    </footer>
-  </body>
+  <!-- Footer Section -->
+  <footer>
+    <!-- Add your footer content here -->
+  </footer>
+
+</body>
 </html>
