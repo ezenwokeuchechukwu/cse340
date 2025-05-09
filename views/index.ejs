@@ -4,20 +4,23 @@
     <%- include('./partials/head') %>
   </head>
   <body>
-    <!-- Header and Navigation Section -->
-    <%- include('./partials/header-navigation') %>
+    <!-- Main content starts here -->
+    <header>
+      <%- include('./partials/header') %>
+      <%- include('./partials/navigation') %>
+    </header>
 
     <!-- Hero Banner Section -->
     <section class="main-banner">
       <div class="banner-text">
         <h1>Welcome to CSE Motors</h1>
         <p>Your dream car is just a click away</p>
-        <a href="#" class="cta-button">Browse Cars</a>
+        <a href="#featured-cars" class="cta-button">Browse Cars</a> <!-- Updated link to scroll to the featured section -->
       </div>
     </section>
 
     <!-- Featured Cars Section -->
-    <section class="featured-cars">
+    <section class="featured-cars" id="featured-cars"> <!-- Added ID for anchor link -->
       <div class="container">
         <h2>Featured Cars</h2>
         <div class="car-grid">
@@ -36,7 +39,10 @@
         </div>
       </div>
     </section>
+
     <!-- Footer Section -->
-    <%- include('./partials/footer') %>
+    <footer>
+      <%- include('./partials/footer') %>
+    </footer>
   </body>
 </html>
