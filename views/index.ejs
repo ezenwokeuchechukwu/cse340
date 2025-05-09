@@ -4,24 +4,21 @@
     <%- include('./partials/head') %>
   </head>
   <body>
-    <!-- Site Header -->
-    <%- include('./partials/header') %>
+    <header>
+      <%- include('./partials/header') %>
+      <%- include('./partials/navigation') %>
+    </header>
 
-    <!-- Navigation Bar -->
-    <%- include('./partials/navigation') %>
-
-    <!-- Hero Section -->
+    <!-- Hero Banner Section -->
     <section class="main-banner">
-      <div class="banner-overlay">
-        <div class="banner-text">
-          <h1>Welcome to CSE Motors</h1>
-          <p>Your dream car is just a click away</p>
-          <a href="/inventory" class="cta-button">Browse Cars</a>
-        </div>
+      <div class="banner-text">
+        <h1>Welcome to CSE Motors</h1>
+        <p>Your dream car is just a click away</p>
+        <a href="#" class="cta-button">Browse Cars</a>
       </div>
     </section>
 
-    <!-- Featured Cars -->
+    <!-- Featured Cars Section -->
     <section class="featured-cars">
       <div class="container">
         <h2>Featured Cars</h2>
@@ -42,7 +39,6 @@
       </div>
     </section>
 
-    <!-- Site Footer -->
     <%- include('./partials/footer') %>
   </body>
 </html>
