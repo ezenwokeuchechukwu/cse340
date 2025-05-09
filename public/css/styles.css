@@ -7,13 +7,15 @@
 
 /* Root Variables */
 :root {
-  --primary-color: #1a1a2e;
-  --accent-color: #facc15;
-  --text-color: #333;
-  --background-color: #f0f2f5;
-  --card-bg: #ffffff;
-  --card-hover: #e5e7eb;
-  --shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  --primary-color: #166534;       /* Dark Green */
+  --secondary-color: #14532d;     /* Deeper Green for footer */
+  --accent-color: #facc15;        /* Bright yellow */
+  --text-color: #111827;          /* Almost black */
+  --light-text: #ffffff;          /* White for text on dark backgrounds */
+  --background-color: #f8fafc;    /* Soft background */
+  --card-bg: #ffffff;             /* White card */
+  --card-hover: #e2e8f0;          /* Light gray */
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Base Styles */
@@ -21,13 +23,14 @@ body {
   font-family: 'Segoe UI', Arial, sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
+  line-height: 1.6;
   text-align: center;
 }
 
 /* Header */
 header {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--light-text);
   padding: 1rem 20px;
 }
 
@@ -35,7 +38,7 @@ header h1,
 header .site-name a {
   font-size: 2rem;
   font-weight: bold;
-  color: white;
+  color: var(--light-text);
   text-decoration: none;
 }
 
@@ -51,7 +54,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: white;
+  color: var(--light-text);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -61,42 +64,67 @@ nav ul li a:hover {
   color: var(--accent-color);
 }
 
-/* Hero Section */
+/* Hero Banner Section */
 .main-banner {
-  background-image: url('/images/hero-banner.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 90vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  color: white;
-  padding: 20px;
-  text-align: center;
+  align-items: stretch;
+  height: 90vh;
 }
 
-.main-banner .banner-text h1 {
+.banner-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+/* Text Column */
+.banner-text {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  text-align: left;
+}
+
+.banner-text h1 {
   font-size: 3rem;
   margin-bottom: 20px;
+  color: var(--primary-color);
 }
 
-.main-banner .banner-text p {
+.banner-text p {
   font-size: 1.3rem;
   margin-bottom: 25px;
+  color: #374151;
 }
 
 .cta-button {
-  background-color: #2563eb;
-  color: white;
+  background-color: #1e40af;
+  color: #ffffff;
   padding: 12px 25px;
   font-size: 1rem;
   text-decoration: none;
   border-radius: 6px;
   transition: background-color 0.3s ease;
+  width: fit-content;
 }
 
 .cta-button:hover {
-  background-color: #1e40af;
+  background-color: #3b82f6;
+}
+
+/* Image Column */
+.banner-image {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url('/images/hero-banner.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 /* Featured Cars Section */
@@ -108,6 +136,7 @@ nav ul li a:hover {
 .featured-cars h2 {
   font-size: 2rem;
   margin-bottom: 40px;
+  color: var(--primary-color);
 }
 
 .car-grid {
@@ -121,6 +150,7 @@ nav ul li a:hover {
   padding: 20px;
   border-radius: 8px;
   transition: transform 0.3s ease;
+  box-shadow: var(--shadow);
 }
 
 .car-item:hover {
@@ -133,7 +163,7 @@ nav ul li a:hover {
   margin-bottom: 10px;
 }
 
-/* Card Layout (if used separately) */
+/* General Card Layout */
 main,
 #cards {
   display: flex;
@@ -164,8 +194,8 @@ section img {
 
 /* Footer */
 footer {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--light-text);
   padding: 20px;
   margin-top: 20px;
 }
@@ -179,8 +209,25 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* Responsive */
+/* Responsive Layout */
 @media screen and (max-width: 768px) {
+  .banner-content {
+    grid-template-columns: 1fr;
+  }
+
+  .banner-image {
+    height: 300px;
+  }
+
+  .banner-text {
+    text-align: center;
+    align-items: center;
+  }
+
+  .cta-button {
+    align-self: center;
+  }
+
   .main-banner .banner-text h1 {
     font-size: 2.2rem;
   }
@@ -204,77 +251,5 @@ footer a:hover {
 
   section {
     width: 90%;
-  }
-}
-.main-banner {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  height: 90vh;
-}
-
-.banner-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-}
-
-.banner-text {
-  background-color: #1a1a2e;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 40px;
-}
-
-.banner-text h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
-.banner-text p {
-  font-size: 1.3rem;
-  margin-bottom: 25px;
-}
-
-.cta-button {
-  background-color: #2563eb;
-  color: white;
-  padding: 12px 25px;
-  font-size: 1rem;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
-  width: fit-content;
-}
-
-.cta-button:hover {
-  background-color: #1e40af;
-}
-
-.banner-image {
-  background-image: url('/images/hero-banner.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-/* Responsive Layout */
-@media (max-width: 768px) {
-  .banner-content {
-    grid-template-columns: 1fr;
-  }
-
-  .banner-image {
-    height: 300px;
-  }
-
-  .banner-text {
-    text-align: center;
-    align-items: center;
-  }
-
-  .cta-button {
-    align-self: center;
   }
 }
