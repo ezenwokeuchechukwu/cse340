@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('./partials/head') %>
-    <%- include('./partials/header') %>
-    <%- include('./partials/navigation') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ezenwoke Uchechukwu Promise">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome to CSE Motors</title>
+    <link rel="stylesheet" href="/css/styles.css">
   </head>
   
+  <body>
+    <!-- Header Section with Navigation (now combined) -->
+    <header>
+      <div class="site-name">
+        <a href="/">CSE Motors</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#featured-cars">Featured Cars</a></li>
+          <li><a href="#about-us">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
     <!-- Hero Banner Section -->
     <section class="main-banner">
       <div class="banner-text">
@@ -36,9 +54,10 @@
       </div>
     </section>
 
-    <!-- Footer Section (only one footer) -->
+    <!-- Footer Section (now combined) -->
     <footer>
-      <%- include('./partials/footer') %>
+      <p>&copy; 2025 CSE Motors. All rights reserved.</p>
+      <p>Follow us on <a href="#">Facebook</a>, <a href="#">Twitter</a>, <a href="#">Instagram</a></p>
     </footer>
   </body>
 </html>
