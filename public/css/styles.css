@@ -1,0 +1,200 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Root Variables for Colors */
+:root {
+  --primary-color: #007BFF;
+  --secondary-color: #333;
+  --accent-color: #f39c12;
+  --background-color: #f8f8f8;
+  --header-footer-bg: #2c3e50;
+  --white: #fff;
+}
+
+/* Header and Navigation */
+header {
+  background-color: var(--header-footer-bg);
+  color: var(--white);
+  padding: 1rem 0;
+}
+
+header .site-name a {
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding-left: 20px;
+  display: inline-block;
+}
+
+nav {
+  background-color: #34495e;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: var(--accent-color);
+}
+
+nav ul li a.active {
+  text-decoration: underline;
+}
+
+/* Hero Banner Section */
+.main-banner {
+  background-image: url('/images/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  text-align: center;
+  padding: 100px 20px;
+  margin-bottom: 40px;
+}
+
+.main-banner h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.main-banner p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  padding: 15px 30px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+/* Featured Cars Section */
+.featured-cars {
+  padding: 50px 20px;
+  background-color: var(--white);
+}
+
+.featured-cars h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.car-item {
+  background-color: #e0e0e0;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.car-item:hover {
+  transform: scale(1.03);
+}
+
+.car-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.car-item p {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background-color: var(--header-footer-bg);
+  color: var(--white);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+
+  .main-banner h1 {
+    font-size: 2.5rem;
+  }
+
+  .main-banner p {
+    font-size: 1.2rem;
+  }
+
+  .cta-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+
+  .featured-cars h2 {
+    font-size: 1.75rem;
+  }
+
+  .car-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .car-item {
+    padding: 15px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  /* Styles for larger screens, if needed */
+  .main-banner {
+    padding: 120px 20px;
+  }
+
+  .cta-button {
+    padding: 18px 35px;
+  }
+}
