@@ -4,20 +4,23 @@
   <%- include('../partials/head') %>
 </head>
 <body>
+  <div class="frame-wrapper"> <!-- Add checkered frame wrapper -->
 
-  <div id="wrapper">
+    <div class="page-content"> <!-- Center and contain the actual page -->
 
-    <%- include('../partials/header') %>
+      <div id="wrapper">
+        <%- include('../partials/header') %>
+        <%- include('../partials/navigation') %>
 
-    <%- include('../partials/navigation') %>
+        <main>
+          <%- body %>
+        </main>
 
-    <main>
-      <%- body %>
-    </main>
+        <%- include('../partials/footer') %>
+      </div>
 
-    <%- include('../partials/footer') %>
+    </div>
 
   </div>
-
 </body>
 </html>

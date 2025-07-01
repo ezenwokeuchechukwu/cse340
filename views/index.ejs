@@ -1,57 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CSE Motors</title>
-  <link rel="stylesheet" href="/css/styles.css" />
-</head>
-<body>
 
-  <header>
-    <%- include('./partials/header') %>
-    <%- include('./partials/navigation') %>
-  </header>
+  <h1>Welcome to CSE Motors!</h1>
 
-  <!-- Hero Banner Section -->
-  <section class="main-banner">
-    <div class="banner-content">
-      <div class="banner-text">
-        <h1>Welcome to CSE Motors</h1>
-        <p>Your dream car is just a click away</p>
-        <a href="#featured-cars" class="cta-button">Browse Cars</a>
-      </div>
-      <div class="banner-image"></div>
-      <img src="images/site/checkerboard.jpg" alt="Heroimage">
-          <p>background</p>
+  <section class="hero">
+    <div class="hero-text">
+      <h2>DMC Delorean</h2>
+      <ul>
+        <li>3 Cup holders</li>
+        <li>Superman doors</li>
+        <li>Fuzzy dice!</li>
+      </ul>
+      <button class="cta-btn">Own Today</button>
     </div>
+    <img src="images/vehicles/delorean.jpg" alt="DMC Delorean">
   </section>
 
-  <!-- Featured Cars Section -->
-  <section class="featured-cars" id="featured-cars">
-    <div class="container">
-      <h2>Featured Cars</h2>
-      <div class="car-grid">
-        <div class="car-item">
-          <img src="/images/vehicles/camaro.jpg" alt="Luxury Sedan">
-         
-        </div>
-        <div class="car-item">
-          <img src="/images/vehicles/batmobile.jpg" alt="Sports Coupe">
-          
-        </div>
-        <div class="car-item">
-          <img src="/images/vehicles/adventador.jpg" alt="Family SUV">
-          
-        </div>
+  <section class="features">
+    <div class="upgrades">
+      <h3>Delorean Upgrades</h3>
+      <div class="upgrade-grid">
+        <figure>
+          <img src="images/upgrades/flux-cap.png" alt="Flux Capacitor">
+          <figcaption><a href="#">Flux Capacitor</a></figcaption>
+        </figure>
+        <figure>
+          <img src="/images/upgrades/flame.jpg" alt="Flame Decals">
+          <figcaption><a href="#">Flame Decals</a></figcaption>
+        </figure>
+        <figure>
+          <img src="/images/upgrades/bumper_sticker.jpg" alt="Bumper Stickers">
+          <figcaption><a href="#">Bumper Stickers</a></figcaption>
+        </figure>
+        <figure>
+          <img src="/images/upgrades/hub-cap.jpg" alt="Hub Caps">
+          <figcaption><a href="#">Hub Caps</a></figcaption>
+        </figure>
       </div>
     </div>
+    <div class="reviews">
+      <h3>DMC Delorean Reviews</h3>
+      <ul>
+        <li>“So fast it's almost like traveling in time.” (4/5)</li>
+        <li>“Coolest ride on the road.” (4/5)</li>
+        <li>“I'm feeling McFly!” (5/5)</li>
+        <li>“The most futuristic ride of our day.” (4/5)</li>
+        <li>“80’s livin and I love it!” (5/5)</li>
+      </ul>
+    </div>
   </section>
-
-  <!-- Footer Section -->
-  <footer>
-    <!-- Add your footer content here -->
-  </footer>
-
-</body>
-</html>
