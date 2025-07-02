@@ -8,35 +8,31 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <div class="frame-wrapper">
-
     <div class="page-content">
-
       <div id="wrapper">
 
-        <!-- Wrap in semantic header if not already done inside the partial -->
+        <!-- Semantic page header -->
         <header>
           <%- include('../partials/header') %>
         </header>
 
-        <!-- Add aria-label for screen reader clarity -->
+        <!-- Navigation with screen reader label -->
         <nav aria-label="Main navigation">
           <%- include('../partials/navigation') %>
         </nav>
 
-        <!-- Main content starts here with accessible ID -->
-        <main id="main-content">
+        <!-- Main content area -->
+        <main id="main-content" role="main">
           <%- body %>
         </main>
 
-        <!-- Semantic footer wrapper -->
+        <!-- Footer -->
         <footer>
           <%- include('../partials/footer') %>
         </footer>
 
       </div>
-
     </div>
-
   </div>
 </body>
 </html>
