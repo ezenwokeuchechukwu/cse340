@@ -1,43 +1,49 @@
+<h1>Welcome to CSE Motors!</h1>
 
-  <h1>Welcome to CSE Motors!</h1>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <section class="hero">
+<main id="main-content">
+
+  <section class="hero" aria-labelledby="hero-title">
     <div class="hero-text">
-      <h2>DMC Delorean</h2>
+      <h2 id="hero-title">DMC Delorean</h2>
       <ul>
         <li>3 Cup holders</li>
         <li>Superman doors</li>
         <li>Fuzzy dice!</li>
       </ul>
-      <button class="cta-btn">Own Today</button>
+      <button class="cta-btn" aria-label="Own the DMC Delorean today">Own Today</button>
     </div>
-    <img src="images/vehicles/delorean.jpg" alt="DMC Delorean">
+    <img src="images/vehicles/delorean.jpg" alt="Silver DMC Delorean car side view">
   </section>
 
-  <section class="features">
-    <div class="upgrades">
-      <h3>Delorean Upgrades</h3>
+  <section class="features" aria-labelledby="features-title">
+    <h2 id="features-title" class="sr-only">Delorean Features and Reviews</h2>
+
+    <div class="upgrades" aria-labelledby="upgrades-title">
+      <h3 id="upgrades-title">Delorean Upgrades</h3>
       <div class="upgrade-grid">
         <figure>
-          <img src="images/upgrades/flux-cap.png" alt="Flux Capacitor">
-          <figcaption><a href="#">Flux Capacitor</a></figcaption>
+          <img src="images/upgrades/flux-cap.png" alt="Flux Capacitor Upgrade">
+          <figcaption><a href="#" aria-label="Learn more about the Flux Capacitor upgrade">Flux Capacitor</a></figcaption>
         </figure>
         <figure>
-          <img src="/images/upgrades/flame.jpg" alt="Flame Decals">
-          <figcaption><a href="#">Flame Decals</a></figcaption>
+          <img src="/images/upgrades/flame.jpg" alt="Flame Decal Upgrade">
+          <figcaption><a href="#" aria-label="Learn more about the Flame Decals">Flame Decals</a></figcaption>
         </figure>
         <figure>
-          <img src="/images/upgrades/bumper_sticker.jpg" alt="Bumper Stickers">
-          <figcaption><a href="#">Bumper Stickers</a></figcaption>
+          <img src="/images/upgrades/bumper_sticker.jpg" alt="Bumper Sticker Upgrade">
+          <figcaption><a href="#" aria-label="Learn more about the Bumper Stickers">Bumper Stickers</a></figcaption>
         </figure>
         <figure>
-          <img src="/images/upgrades/hub-cap.jpg" alt="Hub Caps">
-          <figcaption><a href="#">Hub Caps</a></figcaption>
+          <img src="/images/upgrades/hub-cap.jpg" alt="Hub Cap Upgrade">
+          <figcaption><a href="#" aria-label="Learn more about the Hub Caps">Hub Caps</a></figcaption>
         </figure>
       </div>
     </div>
-    <div class="reviews">
-      <h3>DMC Delorean Reviews</h3>
+
+    <div class="reviews" aria-labelledby="reviews-title">
+      <h3 id="reviews-title">DMC Delorean Reviews</h3>
       <ul>
         <li>“So fast it's almost like traveling in time.” (4/5)</li>
         <li>“Coolest ride on the road.” (4/5)</li>
@@ -46,4 +52,7 @@
         <li>“80’s livin and I love it!” (5/5)</li>
       </ul>
     </div>
+
   </section>
+
+</main>

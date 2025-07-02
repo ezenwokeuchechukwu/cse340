@@ -4,12 +4,40 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  font-size: 1rem;
   line-height: 1.5;
-  color: #000;
-  background-color: white;
+  color: #1a1a1a;
+  background-color: #fff;
 }
 
-/* ========== Checkered Frame Wrapper ========== */
+/* ========== Skip Link for Accessibility ========== */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 100;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  background: #000;
+  color: #fff;
+}
+
+/* ========== Focus Styles ========== */
+a:focus,
+button:focus,
+.cta-btn:focus {
+  outline: 3px solid #ffbf47;
+  outline-offset: 2px;
+}
+
+/* ========== Frame Wrapper ========== */
 .frame-wrapper {
   background-image: 
     linear-gradient(45deg, #000 25%, transparent 25%),
@@ -23,28 +51,48 @@ html, body {
   min-height: 100vh;
 }
 
-/* ========== Page Container ========== */
+/* ========== Page Content ========== */
 .page-content {
   max-width: 960px;
   margin: 0 auto;
-  background: white;
+  background: #fff;
   padding: 2rem;
-  box-shadow: 0 0 0 5px white;
+  box-shadow: 0 0 0 5px #fff;
 }
 
 /* ========== Header ========== */
-header {
+#top-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 1rem;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.siteName a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+#tools a {
+  font-size: 1rem;
+  color: #007bff;
+  text-decoration: none;
+}
+
+#tools a:hover,
+#tools a:focus {
+  text-decoration: underline;
 }
 
 /* ========== Navigation ========== */
 nav {
   background-color: #222;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 nav ul {
@@ -58,12 +106,13 @@ nav ul {
 }
 
 nav a {
-  color: white;
+  color: #fff;
   text-decoration: none;
   font-weight: bold;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus {
   text-decoration: underline;
 }
 
@@ -88,23 +137,30 @@ main {
 .hero img {
   width: 100%;
   max-width: 400px;
+  height: auto;
 }
 
+/* ========== CTA Button ========== */
 .cta-btn {
   background-color: #007bff;
-  color: white;
+  color: #fff;
   padding: 0.75rem 1.5rem;
   border: none;
   margin-top: 1rem;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 1rem;
 }
 
 .cta-btn:hover {
   background-color: #0056b3;
 }
 
-/* ========== Features Section ========== */
+.cta-btn:active {
+  background-color: #003d80;
+}
+
+/* ========== Features ========== */
 .features {
   display: flex;
   flex-direction: column;
@@ -135,6 +191,18 @@ footer {
   margin-top: 2rem;
   padding-top: 1rem;
   border-top: 1px solid #ccc;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+footer a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+footer a:hover,
+footer a:focus {
+  color: #0056b3;
 }
 
 /* ========== Responsive Layout ========== */

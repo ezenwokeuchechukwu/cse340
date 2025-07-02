@@ -4,19 +4,35 @@
   <%- include('../partials/head') %>
 </head>
 <body>
-  <div class="frame-wrapper"> <!-- Add checkered frame wrapper -->
+  <!-- Skip link for keyboard navigation and screen readers -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div class="page-content"> <!-- Center and contain the actual page -->
+  <div class="frame-wrapper">
+
+    <div class="page-content">
 
       <div id="wrapper">
-        <%- include('../partials/header') %>
-        <%- include('../partials/navigation') %>
 
-        <main>
+        <!-- Wrap in semantic header if not already done inside the partial -->
+        <header>
+          <%- include('../partials/header') %>
+        </header>
+
+        <!-- Add aria-label for screen reader clarity -->
+        <nav aria-label="Main navigation">
+          <%- include('../partials/navigation') %>
+        </nav>
+
+        <!-- Main content starts here with accessible ID -->
+        <main id="main-content">
           <%- body %>
         </main>
 
-        <%- include('../partials/footer') %>
+        <!-- Semantic footer wrapper -->
+        <footer>
+          <%- include('../partials/footer') %>
+        </footer>
+
       </div>
 
     </div>
