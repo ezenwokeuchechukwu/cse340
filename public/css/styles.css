@@ -66,13 +66,15 @@ button:focus,
 /* ========== Header ========== */
 #top-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding-bottom: 1rem;
   border-bottom: 2px solid #ccc;
   margin-bottom: 1rem;
+  gap: 1rem;
 }
 
+/* Left aligned site name */
 .siteName a {
   font-size: 1.5rem;
   font-weight: bold;
@@ -80,9 +82,24 @@ button:focus,
   text-decoration: none;
 }
 
+/* Center welcome box */
+.welcome-box {
+  background-color: #007bff; /* blue background */
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  white-space: nowrap;
+  text-align: center;
+  flex-grow: 1;
+  margin: 0 1rem;
+}
+
+/* Right aligned account link */
 #tools a {
   font-size: 1rem;
-  color: #0056b3; /* improved contrast */
+  color: #0056b3;
   text-decoration: none;
 }
 
@@ -93,7 +110,7 @@ button:focus,
 
 /* ========== Navigation ========== */
 nav {
-  background-color: #000; /* improved contrast */
+  background-color: #000;
   padding: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -219,7 +236,6 @@ footer a:focus {
   .hero img {
     max-width: 500px;
   }
-
   .features {
     flex-direction: row;
     justify-content: space-between;

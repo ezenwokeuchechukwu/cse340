@@ -4,32 +4,27 @@
   <%- include('../partials/head') %>
 </head>
 <body>
-  <!-- Skip link for keyboard navigation and screen readers -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <div class="frame-wrapper">
     <div class="page-content">
       <div id="wrapper">
 
-        <!-- Semantic page header -->
-        <header>
+        <!-- Site header -->
+        <header role="banner">
           <%- include('../partials/header') %>
         </header>
 
-        <!-- Navigation with screen reader label -->
-        <nav aria-label="Main navigation">
-          <%- include('../partials/navigation') %>
-        </nav>
+        <!-- Main navigation -->
+        <%- include('../partials/navigation') %>
 
-        <!-- Main content area -->
+        <!-- Main content -->
         <main id="main-content" role="main">
           <%- body %>
         </main>
 
-        <!-- Footer -->
-        <footer>
-          <%- include('../partials/footer') %>
-        </footer>
+        <!-- Site footer -->
+        <%- include('../partials/footer') %>
 
       </div>
     </div>
