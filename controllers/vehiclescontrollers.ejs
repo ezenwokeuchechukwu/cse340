@@ -1,0 +1,35 @@
+const db = require('../database');
+
+exports.classificationView = async (req, res) => {
+  const classification = req.params.classificationName;
+  try {
+    const result = await db.query(`
+      SELECT inv_id, inv_make, inv_model, inv_year, inv_thumbnail
+      FROM inventory i
+      JOIN classification c ON i.classification_id = c.classification_id
+      WHERE LOWER(c.classification_name) = LOWER($1)
+    `, [classification]);
+
+    res.render('classification', {
+      title: `${classification.toUpperCase()} Vehicles`,
+      vehicles: result.rows
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error loading classification.');
+  }
+};
+
+exports.vehicleDetail = async (req, res) => {
+  const invId = req.params.invId;
+  try {
+    const result = await db.query(`SELECT * FROM inventory WHERE inv_id = $1`, [invId]);
+    if (result.rows.length === 0) return res.status(404).send('Vehicle not found');
+    res.render('vehicle-detail', {
+      vehicle: result.rows[0]
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error loading vehicle.');
+  }
+};
