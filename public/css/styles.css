@@ -74,7 +74,6 @@ button:focus,
   gap: 1rem;
 }
 
-/* Left aligned site name */
 .siteName a {
   font-size: 1.5rem;
   font-weight: bold;
@@ -82,9 +81,8 @@ button:focus,
   text-decoration: none;
 }
 
-/* Center welcome box */
 .welcome-box {
-  background-color: #007bff; /* blue background */
+  background-color: #007bff;
   color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -96,7 +94,6 @@ button:focus,
   margin: 0 1rem;
 }
 
-/* Right aligned account link */
 #tools a {
   font-size: 1rem;
   color: #0056b3;
@@ -205,6 +202,32 @@ main {
   height: auto;
 }
 
+/* ========== Vehicle Detail Page ========== */
+.vehicle-detail-main {
+  padding: 1rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.vehicle-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.vehicle-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.vehicle-info {
+  flex: 1 1 300px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
 /* ========== Footer ========== */
 footer {
   text-align: center;
@@ -224,6 +247,43 @@ footer a:hover,
 footer a:focus {
   color: #003d80;
 }
+/* ========== Error Page Styles ========== */
+.error-container {
+  max-width: 600px;
+  margin: 5rem auto;
+  padding: 2rem;
+  background-color: #ffe6e6;
+  border: 2px solid #ff4d4d;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.error-container h1 {
+  font-size: 2rem;
+  color: #cc0000;
+  margin-bottom: 1rem;
+}
+
+.error-container p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.error-container a.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #cc0000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.error-container a.button:hover,
+.error-container a.button:focus {
+  background-color: #a60000;
+}
 
 /* ========== Responsive Layout ========== */
 @media screen and (min-width: 768px) {
@@ -236,6 +296,7 @@ footer a:focus {
   .hero img {
     max-width: 500px;
   }
+
   .features {
     flex-direction: row;
     justify-content: space-between;
@@ -243,5 +304,13 @@ footer a:focus {
 
   .upgrades, .reviews {
     width: 48%;
+  }
+
+  .vehicle-detail {
+    flex-direction: row;
+  }
+
+  .vehicle-info {
+    flex: 1;
   }
 }

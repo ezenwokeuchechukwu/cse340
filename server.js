@@ -12,6 +12,7 @@ const path = require("path")
 const expressLayouts = require("express-ejs-layouts")
 const baseController = require("./controllers/baseController")
 const utilities = require("./utilities") // Required for getNav and handleErrors
+const inventoryRoute = require("./routes/inventoryRoute") // <-- Added route file
 
 /* ***********************
  * Create App
@@ -23,6 +24,10 @@ const app = express()
  *************************/
 // Serve static files from the public folder
 app.use(express.static(path.join(__dirname, "public")))
+
+// Allow parsing of URL-encoded data and JSON
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
 /* ***********************
  * View Engine and Templates
@@ -37,6 +42,9 @@ app.set("views", path.join(__dirname, "views"))
  *************************/
 // Index route with error handling
 app.get("/", utilities.handleErrors(baseController.buildHome))
+
+// Inventory routes
+app.use("/inv", inventoryRoute) // <-- Added inventory route middleware
 
 /* ***********************
  * File Not Found Route - must be last route before the error handler

@@ -1,0 +1,18 @@
+<%- include("../partials/header", { title: title }) %>
+<%- nav %>
+
+<main>
+  <h1><%= title %></h1>
+
+  <div class="vehicle-detail">
+    <img src="<%= vehicle.inv_image %>" alt="Image of <%= vehicle.inv_make %> <%= vehicle.inv_model %>">
+    <ul>
+      <li><strong>Price:</strong> <%= vehicle.inv_price_formatted %></li>
+      <li><strong>Miles:</strong> <%= vehicle.inv_miles_formatted %></li>
+      <li><strong>Color:</strong> <%= vehicle.inv_color %></li>
+      <li><strong>Description:</strong> <%= vehicle.inv_description %></li>
+    </ul>
+  </div>
+</main>
+
+<%- include("../partials/footer") %>
