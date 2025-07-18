@@ -25,10 +25,14 @@ Util.getNav = async function () {
     list += `<a href="/inv/type/${row.classification_id}" title="See our inventory of ${row.classification_name} vehicles">${row.classification_name}</a>`
     list += "</li>"
   })
-  list += "</ul>"
 
+  // ✅ Add My Account link here
+  list += '<li><a href="/account" title="My Account">My Account</a></li>'
+
+  list += "</ul>"
   return list
 }
+
 
 
 /* ****************************************

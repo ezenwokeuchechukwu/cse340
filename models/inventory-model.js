@@ -1,8 +1,8 @@
-const pool = require("../database/")
+const pool = require("../database")
 
-/* ***************************
- *  Get all classification data
- *************************** */
+/**
+ * Get all classification data
+ */
 async function getClassifications() {
   try {
     const result = await pool.query(
@@ -15,9 +15,9 @@ async function getClassifications() {
   }
 }
 
-/* ***************************
- *  Get vehicle inventory by classification ID
- *************************** */
+/**
+ * Get inventory by classification ID
+ */
 async function getInventoryByClassificationId(classification_id) {
   try {
     const sql = `
@@ -34,17 +34,14 @@ async function getInventoryByClassificationId(classification_id) {
   }
 }
 
-/* ***************************
- *  Get vehicle details by inv_id
- *************************** */
+/**
+ * Get vehicle details by inventory ID
+ */
 async function getVehicleById(inv_id) {
   try {
-    const sql = `
-      SELECT * FROM public.inventory 
-      WHERE inv_id = $1
-    `
+    const sql = `SELECT * FROM public.inventory WHERE inv_id = $1`
     const result = await pool.query(sql, [inv_id])
-    return result.rows[0] // Return only the first row (expected 1 result)
+    return result.rows[0]
   } catch (error) {
     console.error("getVehicleById error:", error)
     throw error

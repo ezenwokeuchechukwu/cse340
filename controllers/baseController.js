@@ -1,12 +1,17 @@
 const invModel = require("../models/inventory-model")
-const utilities = require("../utilities") // Only one required
+const utilities = require("../utilities")
 const baseController = {}
 
+/* Home page controller */
 baseController.buildHome = async function(req, res) {
   const nav = await utilities.getNav()
-  res.render("index", { title: "Home", nav })
+  res.render("index", {
+    title: "Home",
+    nav
+  })
 }
 
+/* Vehicle Detail View */
 baseController.buildDetailView = async function(req, res, next) {
   try {
     const invId = parseInt(req.params.inv_id)
