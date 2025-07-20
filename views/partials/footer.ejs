@@ -1,8 +1,7 @@
+
+<% const d = new Date()
+let year = d.getFullYear() %>
 <footer>
-  <p>
-    &copy; <%= new Date().getFullYear() %> CSE Motors | CSE 340 App. All rights reserved.
-  </p>
-  <p>
-    <a href="/inv/error-trigger">Trigger 500 Error</a>
-  </p>
+  <h6 class="copyright">&copy; <%= year %>, CSE 340 App</h6>
+  <a href="/inv/trigger-error" title="Trigger Error">Error Link</a>
 </footer>

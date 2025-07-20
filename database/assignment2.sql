@@ -1,28 +1,46 @@
--- 1. Insert Tony Stark (account_id and account_type auto-handled)
-INSERT INTO account (account_firstname, account_lastname, account_email, account_password)
-VALUES ('Tony', 'Stark', 'tony@starkent.com', 'Iam1ronM@n');
 
--- 2. Update Tony Stark to be Admin
-UPDATE account
+--  Insert a new “Tony Stark” record into the account table
+INSERT INTO public.account (
+  account_firstname,
+  account_lastname,
+  account_email,
+  account_password
+) 
+VALUES (
+  'Tony',
+  'Stark',
+  'tony@starkent.com',
+  'Iam1ronM@n'
+);
+
+
+-- Update the account_type for the “Tony Stark” record to “Admin”
+UPDATE public.account
 SET account_type = 'Admin'
 WHERE account_email = 'tony@starkent.com';
 
--- 3. Delete Tony Stark
-DELETE FROM account
-WHERE account_email = 'tony@starkent.com';t
 
--- 4. Update GM Hummer description (using REPLACE)
-UPDATE inventory
+-- Delete the “Tony Stark” record from the account table
+DELETE FROM public.account
+WHERE account_email = 'tony@starkent.com';
+
+
+-- Modify the “GM Hummer” record to replace “small interiors” with “a huge interior”
+UPDATE public.inventory
 SET inv_description = REPLACE(inv_description, 'small interiors', 'a huge interior')
-WHERE inv_make = 'GM' AND inv_model = 'Hummer';
+WHERE inv_make = 'GM'
+  AND inv_model = 'Hummer';
 
--- 5. INNER JOIN to get Sport category vehicles
-SELECT inv_make, inv_model, classification_name
-FROM inventory
-INNER JOIN classification ON inventory.classification_id = classification.classification_id
-WHERE classification_name = 'Sport';
 
--- 6. Add "/vehicles" into inv_image and inv_thumbnail paths
-UPDATE inventory
-SET inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'),
-    inv_thumbnail = REPLACE(inv_thumbnail, '/images/', '/images/vehicles/');
+-- Use an INNER JOIN to select make, model, and Classification_name for items belonging to the “Sport” category
+SELECT i.inv_make, i.inv_model, c.classification_name
+FROM public.inventory AS i
+JOIN public.classification AS c
+  ON i.classification_id = c.classification_id
+WHERE c.classification_name = 'Sport';
+
+
+-- Update all inventory records to add “/vehicles” in the middle of the inv_image and inv_thumbnail paths
+UPDATE public.inventory
+SET inv_image      = REPLACE(inv_image, '/images/', '/images/vehicles/'),
+    inv_thumbnail  = REPLACE(inv_thumbnail, '/images/', '/images/vehicles/');

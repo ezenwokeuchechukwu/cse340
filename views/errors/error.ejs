@@ -1,11 +1,8 @@
-<%- include("../partials/header", { title: title }) %>
 
-<main class="error-container">
-  <h1>Error <%= title %></h1>
-  <p><%= message %></p>
-  <p>Oops! Something went wrong. Try going <a href="/">back to the home page</a>.</p>
-  <a href="/" class="button">Return to Home</a>
-</main>
-
-<%- include("../partials/footer") %>
-
+<h1 class="error-title"><%= title %></h1>
+<div class="error-container">
+    <div class="error-icon">
+        <img src="/images/site/broken.svg" alt="Icon of a broken wheel" />
+    </div>
+    <div class="error-message"><%- message %></div>
+</div>

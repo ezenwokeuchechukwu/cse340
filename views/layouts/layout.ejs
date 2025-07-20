@@ -1,33 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <%- include('../partials/head') %>
-</head>
-<body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+	<%- include('../partials/head') %>
 
-  <div class="frame-wrapper">
-    <div class="page-content">
-      <div id="wrapper">
-
-        <!-- Site header -->
-        <header>
-          <%- include('../partials/header') %>
-        </header>
-
-        <!-- Main navigation (insert dynamic nav here) -->
-        <%- nav %>
-
-        <!-- Main content -->
-        <main id="main-content">
-          <%- body %>
-        </main>
-
-        <!-- Site footer -->
-        <%- include('../partials/footer') %>
-
-      </div>
-    </div>
-  </div>
-</body>
+	<body>
+		<div id="wrapper" class="container">
+			<%- include('../partials/header') %> <%- include('../partials/navigation') %>
+			<main><%- body %></main>
+			<%- include('../partials/footer') %>
+		</div>
+	</body>
 </html>
