@@ -1,4 +1,3 @@
-
 const pool = require("../database/");
 
 async function addItemToCart(account_id, inv_id) {

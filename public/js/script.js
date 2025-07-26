@@ -1,4 +1,3 @@
-
 document.getElementById("showPassword").addEventListener("click", function () {
 	const passwordInput = document.getElementById("account_password");
 	const showPasswordButton = document.getElementById("showPassword");
