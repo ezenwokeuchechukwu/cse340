@@ -1,0 +1,79 @@
+<%- messages() %>
+
+<div class="form-container">
+  <% if (errors) { %>
+    <ul class="notice">
+      <% errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <h1><%= title %></h1>
+
+  <!-- Account Update Form -->
+  <div class="update-form">
+    <h2>Account Update</h2>
+    <form action="/account/update" method="post" class="account-form">
+      <input type="hidden" name="account_id" value="<%= locals.accountData.account_id %>">
+      
+      <div class="form-group">
+        <label for="account_firstname">First Name:</label>
+        <input type="text" id="account_firstname" name="account_firstname" 
+          pattern="[A-Za-z]+" title="Please enter only letters"
+          value="<%= locals.accountData.account_firstname %>" required>
+      </div>
+
+      <div class="form-group">
+        <label for="account_lastname">Last Name:</label>
+        <input type="text" id="account_lastname" name="account_lastname" 
+          pattern="[A-Za-z]+" title="Please enter only letters"
+          value="<%= locals.accountData.account_lastname %>" required>
+      </div>
+
+      <div class="form-group">
+        <label for="account_email">Email:</label>
+        <input type="email" id="account_email" name="account_email" 
+          value="<%= locals.accountData.account_email %>" required>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="form-button">Update Account</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Password Change Form -->
+  <div class="update-form">
+    <h2>Change Password</h2>
+    <p class="password-info">
+      Enter a new password to change your current password. 
+      Password requirements:
+    </p>
+    <ul class="password-requirements">
+      <li>At least 12 characters</li>
+      <li>At least 1 capital letter</li>
+      <li>At least 1 number</li>
+      <li>At least 1 special character</li>
+    </ul>
+
+    <form action="/account/update/password" method="post" class="password-form">
+      <input type="hidden" name="account_id" value="<%= locals.accountData.account_id %>">
+      
+      <div class="form-group">
+        <label for="account_password">New Password:</label>
+        <div class="password-input-container">
+          <input type="password" id="account_password" name="account_password" 
+            required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+          <button type="button" id="showPassword" class="password-toggle">Show</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="form-button">Change Password</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/js/script.js"></script>

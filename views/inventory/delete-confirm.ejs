@@ -1,0 +1,67 @@
+<% if (title) { %>
+<h1 class="grid-header"><%= title %></h1>
+<% } %> <%- messages() %> <% if (errors) { %>
+<ul class="notice">
+	<% errors.array().forEach(error => { %>
+	<li><%= error.msg %></li>
+	<% }) %>
+</ul>
+<% } %>
+
+<div class="add-inventory-form">
+	<p class="notice warning">Confirm Deletion - The delete is permanent.</p>
+
+	<form action="/inv/delete" method="post">
+		<div class="form-group">
+			<label for="inv_make">Make:</label>
+			<input
+				type="text"
+				readonly
+				name="inv_make"
+				id="inv_make"
+				value="<%= locals.inv_make %>"
+			/>
+		</div>
+
+		<div class="form-group">
+			<label for="inv_model">Model:</label>
+			<input
+				type="text"
+				readonly
+				name="inv_model"
+				id="inv_model"
+				value="<%= locals.inv_model %>"
+			/>
+		</div>
+
+		<div class="form-group">
+			<label for="inv_year">Year:</label>
+			<input
+				type="text"
+				readonly
+				name="inv_year"
+				id="inv_year"
+				value="<%= locals.inv_year %>"
+			/>
+		</div>
+
+		<div class="form-group">
+			<label for="inv_price">Price:</label>
+			<input
+				type="text"
+				readonly
+				name="inv_price"
+				id="inv_price"
+				value="<%= locals.inv_price %>"
+			/>
+		</div>
+
+		<input type="hidden" name="inv_id" value="<%= locals.inv_id %>" />
+
+		<p class="notice warning">All deletes are permanent.</p>
+
+		<button type="submit" class="form-button delete-button">
+			Delete Vehicle
+		</button>
+	</form>
+</div>

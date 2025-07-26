@@ -1,0 +1,58 @@
+<div class="login-container">
+	<% if (title) { %>
+	<h1><%= title %></h1>
+	<% } %> <%- messages() %> <% if (errors) { %>
+	<ul class="notice">
+		<% errors.array().forEach(error => { %>
+		<li><%= error.msg %></li>
+		<% }) %>
+	</ul>
+	<% } %>
+
+	<form id="loginForm" action="/account/login" method="post" class="login-form">
+		<div class="form-group">
+			<label for="account_email">Email:</label>
+			<input
+				type="email"
+				id="account_email"
+				name="account_email"
+				value="<%= locals.account_email ? account_email : '' %>"
+				required
+			/>
+		</div>
+
+		<div class="form-group">
+			<label for="account_password">Password:</label>
+			<div class="password-input-container">
+				<input
+					type="password"
+					id="account_password"
+					name="account_password"
+					required
+					pattern="(?=.*\d)(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{12,}"
+					title="Password must be at least 12 characters and include 1 capital letter, 1 number and 1 special character"
+				/>
+				<button type="button" id="showPassword" class="password-toggle">
+					Show
+				</button>
+			</div>
+			<div class="password-requirements">
+				Password must be:
+				<ul>
+					<li>At least 12 characters long</li>
+					<li>Contain at least 1 capital letter</li>
+					<li>Contain at least 1 number</li>
+					<li>Contain at least 1 special character</li>
+				</ul>
+			</div>
+		</div>
+
+		<button type="submit" class="form-button">Login</button>
+	</form>
+
+	<p class="register-link">
+		No account? <a href="/account/register">Sign-up</a>
+	</p>
+</div>
+
+<script src="/js/script.js"></script>

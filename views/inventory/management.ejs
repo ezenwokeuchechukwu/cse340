@@ -1,0 +1,26 @@
+<%- messages() %>
+
+<div class="management">
+	<h1 class="grid-header"><%= title %></h1>
+
+	<div class="management-links">
+		<h2>Inventory Management</h2>
+		<p><a href="/inv/add-classification">Add New Classification</a></p>
+		<p><a href="/inv/add-inventory">Add New Vehicle</a></p>
+	</div>
+
+	<div class="manage-inventory">
+		<h2>Manage Inventory</h2>
+		<p>
+			Select a classification to see the items belonging to that classification.
+		</p>
+
+		<%- classificationList %>
+
+		<table id="inventoryDisplay"></table>
+
+		<noscript>JavaScript must be enabled to use this page.</noscript>
+	</div>
+</div>
+
+<script src="/js/inventory.js"></script>

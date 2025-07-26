@@ -1,0 +1,15 @@
+<div class="order-success-container">
+	<h1><%= title %></h1>
+	<%- messages() %>
+	<p><%= firstName %>, you have placed an order for the following vehicles:</p>
+	<ul>
+		<% vehicleNames.forEach(function(name) { %>
+		<li><%= name %></li>
+		<% }); %>
+	</ul>
+	<p>Total Cost: <strong><%= total %></strong></p>
+	<p class="customer-service">
+		A customer representative will contact you shortly to complete the order.
+	</p>
+	<a href="/">Return Home</a>
+</div>

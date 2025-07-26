@@ -1,0 +1,116 @@
+<div class="checkout-container">
+	<h1><%= title %></h1>
+	<%- messages() %>
+
+	<% if (locals.errors) { %>
+	<ul class="notice">
+		<% errors.forEach(error => { %>
+		<li><%= error.msg %></li>
+		<% }) %>
+	</ul>
+	<% } %>
+
+	<% if (cartItems.length > 0) { %>
+	<div class="checkout-summary">
+		<table class="cart-table">
+			<thead>
+				<tr>
+					<th>Vehicle</th>
+					<th>Quantity</th>
+					<th>Price</th>
+					<th>Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% cartItems.forEach(item => { const unitPrice = new
+				Intl.NumberFormat("en-US", { style: "currency", currency: "USD",
+				minimumFractionDigits: 0, maximumFractionDigits: 2,
+				}).format(item.inv_price); const lineTotal = new
+				Intl.NumberFormat("en-US", { style: "currency", currency: "USD",
+				minimumFractionDigits: 0, maximumFractionDigits: 2,
+				}).format(item.inv_price * item.quantity); %>
+				<tr>
+					<td data-label="Vehicle"><%= item.inv_make %> <%= item.inv_model %></td>
+					<td data-label="Quantity"><%= item.quantity %></td>
+					<td data-label="Price"><%= unitPrice %></td>
+					<td data-label="Total"><%= lineTotal %></td>
+				</tr>
+				<% }); %>
+			</tbody>
+		</table>
+		<div class="checkout-total">
+			<p>Total: <strong><%= total %></strong></p>
+		</div>
+	</div>
+	<% } else { %>
+	<p>Your cart is empty.</p>
+	<% } %>
+	<form
+		id="checkoutForm"
+		action="/cart/checkout"
+		method="POST"
+		class="checkout-form"
+	>
+		<div class="form-group">
+			<label for="shipping_address">Shipping Address:</label>
+			<input
+				type="text"
+				id="shipping_address"
+				name="shipping_address"
+				value="<%= locals.shipping_address ? shipping_address : '' %>"
+				required
+			/>
+		</div>
+		<div class="form-group">
+			<label for="shipping_city">City:</label>
+			<input
+				type="text"
+				id="shipping_city"
+				name="shipping_city"
+				value="<%= locals.shipping_city ? shipping_city : '' %>"
+				required
+			/>
+		</div>
+		<div class="form-group">
+			<label for="shipping_state">State/Province:</label>
+			<input
+				type="text"
+				id="shipping_state"
+				name="shipping_state"
+				value="<%= locals.shipping_state ? shipping_state : '' %>"
+				required
+			/>
+		</div>
+		<div class="form-group">
+			<label for="shipping_country">Country:</label>
+			<input
+				type="text"
+				id="shipping_country"
+				name="shipping_country"
+				value="<%= locals.shipping_country ? shipping_country : '' %>"
+				required
+			/>
+		</div>
+		<div class="form-group">
+			<label for="shipping_zip">Postal/ZIP Code:</label>
+			<input
+				type="text"
+				id="shipping_zip"
+				name="shipping_zip"
+				value="<%= locals.shipping_zip ? shipping_zip : '' %>"
+				required
+			/>
+		</div>
+		<div class="form-group">
+			<label for="shipping_phone">Phone Number:</label>
+			<input
+				type="tel"
+				id="shipping_phone"
+				name="shipping_phone"
+				value="<%= locals.shipping_phone ? shipping_phone : '' %>"
+				required
+			/>
+		</div>
+		<button type="submit" class="form-button">Place Order</button>
+	</form>
+</div>

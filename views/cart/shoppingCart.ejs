@@ -1,0 +1,58 @@
+<div class="cart-container">
+  <h1><%= title %></h1>
+  <%- messages() %>
+  <% if (cartItems.length > 0) { %>
+    <div class="responsive-table">
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Vehicle</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% cartItems.forEach(item => { 
+            const unitPrice = new Intl.NumberFormat("en-US", { 
+              style: "currency", 
+              currency: "USD",
+              minimumFractionDigits: 0, 
+              maximumFractionDigits: 2, 
+            }).format(item.inv_price);
+            const lineTotal = new Intl.NumberFormat("en-US", { 
+              style: "currency", 
+              currency: "USD",
+              minimumFractionDigits: 0, 
+              maximumFractionDigits: 2, 
+            }).format(item.inv_price * item.quantity);
+          %>
+            <tr>
+              <td data-label="Vehicle"><%= item.inv_make %> <%= item.inv_model %></td>
+              <td data-label="Quantity"><%= item.quantity %></td>
+              <td data-label="Price"><%= unitPrice %></td>
+              <td data-label="Total"><%= lineTotal %></td>
+              <td data-label="Action">
+                <form action="/cart/remove" method="POST">
+                  <input type="hidden" name="cart_id" value="<%= item.cart_id %>" />
+                  <button type="submit" class="form-button remove-button">Remove</button>
+                </form>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <div class="cart-actions">
+        <div class="cart-total">
+          <p>Total: <strong><%= total %></strong></p>
+        </div>
+        <div class="checkout-action">
+          <a href="/cart/checkout" class="form-button checkout-button">Proceed to Checkout</a>
+        </div>
+      </div>
+    </div>
+  <% } else { %>
+    <p>Your cart is empty.</p>
+  <% } %>
+</div>

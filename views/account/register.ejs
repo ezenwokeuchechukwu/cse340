@@ -1,0 +1,85 @@
+<div class="register-container">
+	<% if (title) { %>
+	<h1><%= title %></h1>
+	<% } %> <%- messages() %> <% if (errors) { %>
+	<ul class="notice">
+		<% errors.array().forEach(error => { %>
+		<li><%= error.msg %></li>
+		<% }) %>
+	</ul>
+	<% } %>
+
+	<form
+		id="registerForm"
+		action="/account/register"
+		method="post"
+		class="register-form"
+	>
+		<div class="form-group">
+			<label for="account_firstname">First Name:</label>
+			<input
+				type="text"
+				id="account_firstname"
+				name="account_firstname"
+				pattern="[A-Za-z]+"
+				title="Please enter only letters"
+				value="<%= locals.account_firstname ? account_firstname : '' %>"
+				required
+			/>
+		</div>
+
+		<div class="form-group">
+			<label for="account_lastname">Last Name:</label>
+			<input
+				type="text"
+				id="account_lastname"
+				name="account_lastname"
+				pattern="[A-Za-z]+"
+				title="Please enter only letters"
+				value="<%= locals.account_lastname ? account_lastname : '' %>"
+				required
+			/>
+		</div>
+
+		<div class="form-group">
+			<label for="account_email">Email:</label>
+			<input
+				type="email"
+				id="account_email"
+				name="account_email"
+				value="<%= locals.account_email ? account_email : '' %>"
+				required
+			/>
+		</div>
+
+		<div class="form-group">
+			<label for="account_password">Password:</label>
+			<div class="password-input-container">
+				<input
+					type="password"
+					id="account_password"
+					name="account_password"
+					required
+					pattern="(?=.*\d)(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{12,}"
+					title="Password must be at least 12 characters and include 1 capital letter, 1 number and 1 special character"
+				/>
+				<button type="button" id="showPassword" class="password-toggle">
+					Show
+				</button>
+			</div>
+			<div class="password-requirements">
+				Password must be:
+				<ul>
+					<li>At least 12 characters long</li>
+					<li>Contain at least 1 capital letter</li>
+					<li>Contain at least 1 number</li>
+					<li>Contain at least 1 special character</li>
+				</ul>
+			</div>
+		</div>
+
+		<button type="submit" class="form-button">Register</button>
+	</form>
+</div>
+
+<script src="/js/script.js"></script>
