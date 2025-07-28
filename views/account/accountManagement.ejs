@@ -1,34 +1,34 @@
 <div class="account-management-container">
-  <%- messages() %>
-  <% if (errors) { %>
-    <ul class="notice">
-      <% errors.forEach(error => { %>
-        <li><%= error.msg %></li>
-      <% }) %>
-    </ul>
-  <% } %>
+	<%- messages() %> <% if (errors) { %>
+	<ul class="notice">
+		<% errors.forEach(error => { %>
+		<li><%= error.msg %></li>
+		<% }) %>
+	</ul>
+	<% } %>
 </div>
 
 <div class="management">
-  <h1><%= title %></h1>
+	<h1><%= title %></h1>
 
-  <h2>Welcome <%= accountData.account_firstname %></h2>
+	<h2>Welcome <%= locals.accountData.account_firstname %></h2>
 
-  <div class="management-links">
-    <p>
-      <a
-        href="/account/update/<%= accountData.account_id %>"
-        title="Click to update account information"
-      >
-        Update Account Information
-      </a>
-    </p>
+	<div class="management-links">
+		<p>
+			<a
+				href="/account/update/<%= locals.accountData.account_id %>"
+				title="Click to update account information"
+			>
+				Update Account Information
+			</a>
+		</p>
 
-    <% if (accountData.account_type === "Employee" || accountData.account_type === "Admin") { %>
-      <h3>Inventory Management</h3>
-      <p>
-        <a href="/inv/" title="Click to manage inventory">Manage Inventory</a>
-      </p>
-    <% } %>
-  </div>
+		<% if (locals.accountData.account_type === "Employee" ||
+		locals.accountData.account_type === "Admin") { %>
+		<h3>Inventory Management</h3>
+		<p>
+			<a href="/inv/" title="Click to manage inventory"> Manage Inventory </a>
+		</p>
+		<% } %>
+	</div>
 </div>
