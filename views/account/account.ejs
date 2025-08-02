@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+<main>
+  <h1>Welcome, <%= accountData.account_firstname %>!</h1>
+
+  <p><strong>Account Type:</strong> <%= accountData.account_type %></p>
+
+  <div class="account-buttons">
+    <a class="btn" href="/account/update">Update Account Info</a>
+    <a class="btn" href="/account/change-password">Change Password</a>
+  </div>
+</main>
+<%- include('../partials/footer') %>

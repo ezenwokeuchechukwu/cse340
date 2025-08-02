@@ -14,3 +14,7 @@ node_modules
 
 # .DS_Store is only for Mac users
 **/.DS_Store
+
+# .vscode is a folder created by Visual Studio Code
+.vscode
+account.txt

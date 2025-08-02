@@ -7,20 +7,20 @@
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
-  "author": "Ezenwoke Uchechukwu Promise",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^3.0.2",
-    "body-parser": "^2.2.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
     "connect-flash": "^0.1.1",
     "connect-pg-simple": "^10.0.0",
     "cookie-parser": "^1.4.7",
-    "dotenv": "^16.5.0",
+    "dotenv": "^16.0.3",
     "ejs": "^3.1.10",
-    "express": "^4.21.2",
+    "express": "^4.18.2",
     "express-ejs-layouts": "^2.5.1",
     "express-messages": "^1.0.1",
-    "express-session": "^1.18.2",
+    "express-session": "^1.18.1",
     "express-validator": "^7.2.1",
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.8.0"
@@ -28,9 +28,5 @@
   "devDependencies": {
     "nodemon": "^3.1.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ezenwokeuchechukwu/cse340.git"
-  },
-  "homepage": "https://github.com/ezenwokeuchechukwu/cse340#readme"
+  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
 }

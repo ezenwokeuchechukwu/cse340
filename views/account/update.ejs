@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+<main>
+  <h1>Update Account Info</h1>
+  <form action="/account/update" method="post">
+    <label for="account_firstname">First Name</label>
+    <input type="text" id="account_firstname" name="account_firstname" required value="<%= accountData.account_firstname %>">
+
+    <label for="account_lastname">Last Name</label>
+    <input type="text" id="account_lastname" name="account_lastname" required value="<%= accountData.account_lastname %>">
+
+    <label for="account_email">Email</label>
+    <input type="email" id="account_email" name="account_email" required value="<%= accountData.account_email %>">
+
+    <button type="submit">Update Info</button>
+  </form>
+</main>
+<%- include('../partials/footer') %>

@@ -1,4 +1,3 @@
-
 --  Insert a new “Tony Stark” record into the account table
 INSERT INTO public.account (
   account_firstname,
