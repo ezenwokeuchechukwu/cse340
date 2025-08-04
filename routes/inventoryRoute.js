@@ -5,102 +5,99 @@ const invController = require("../controllers/invController");
 const utilities = require("../utilities");
 const invValidate = require("../utilities/inventory-validation");
 
-/* =======================
-   GET Routes
-========================== */
-
-// Management view
+// Route to management view - move this to the top of routes
 router.get("/", 
   utilities.checkLogin,
   utilities.checkAdminEmployee,
   utilities.handleErrors(invController.buildManagementView)
 );
 
-// Get inventory JSON data by classification
+// Route to get inventory JSON data - move this near the top, after the management view route
 router.get("/getInventory/:classification_id", 
   utilities.handleErrors(invController.getInventoryJSON)
 );
 
-// Inventory by classification view
-router.get("/type/:classificationId", 
-  utilities.handleErrors(invController.buildByClassificationId)
+// Route to build inventory by classification view
+router.get(
+	"/type/:classificationId",
+	utilities.handleErrors(invController.buildByClassificationId)
 );
 
-// Vehicle detail page
-router.get("/detail/:inv_id", 
-  utilities.handleErrors(invController.buildByInvId)
+// Route to serve a single vehicle detail page
+router.get(
+	"/detail/:inv_id",
+	utilities.handleErrors(invController.buildByInvId)
 );
 
-// Trigger intentional server error
-router.get("/trigger-error", 
-  utilities.handleErrors(invController.triggerError)
+// Route to test server error handling
+router.get(
+	"/trigger-error",
+	utilities.handleErrors(invController.triggerError)
 );
 
-// Add classification view
+// Route to add classification view
 router.get("/add-classification", 
   utilities.checkLogin,
   utilities.checkAdminEmployee,
   utilities.handleErrors(invController.buildAddClassification)
 );
 
-// Edit inventory view
+// Route to edit inventory view
 router.get("/edit/:inv_id", 
   utilities.checkLogin,
   utilities.checkAdminEmployee,
   utilities.handleErrors(invController.editInventoryView)
 );
 
-// Add inventory view
+// Route to add inventory view
 router.get("/add-inventory", 
   utilities.checkLogin,
   utilities.checkAdminEmployee,
   utilities.handleErrors(invController.buildAddInventory)
 );
 
-// Deletion confirmation view
+// Route to handle deletion confirmation view
 router.get("/delete/:inv_id", 
   utilities.checkLogin,
   utilities.checkAdminEmployee,
   utilities.handleErrors(invController.deleteView)
 );
 
-/* =======================
-   POST Routes
-========================== */
-
-// Delete inventory item
+// Route to handle the deletion
 router.post("/delete", 
   utilities.checkLogin,
   utilities.checkAdminEmployee,
   utilities.handleErrors(invController.deleteItem)
 );
 
-// Add classification process
-router.post("/add-classification",
+// Process adding classification with validation
+router.post(
+	"/add-classification",
   utilities.checkLogin,
   utilities.checkAdminEmployee,
-  invValidate.classificationRules(),
-  invValidate.checkData,
-  utilities.handleErrors(invController.addClassification)
+	invValidate.classificationRules(),
+	invValidate.checkData,
+	utilities.handleErrors(invController.addClassification)
 );
 
-// Add inventory process
-router.post("/add-inventory",
+// Process adding inventory with validation
+router.post(
+	"/add-inventory",
   utilities.checkLogin,
   utilities.checkAdminEmployee,
-  invValidate.inventoryRules(),
-  invValidate.checkData,
-  utilities.handleErrors(invController.addInventory)
+	invValidate.inventoryRules(),
+	invValidate.checkData,
+	utilities.handleErrors(invController.addInventory)
 );
 
-// Update inventory process
-router.post("/update",
+// Route to update inventory
+router.post(
+  "/update/",
   utilities.checkLogin,
   utilities.checkAdminEmployee,
   invValidate.inventoryRules(),
   invValidate.checkUpdateData,
   utilities.handleErrors(invController.updateInventory)
-);
+)
 
-// Export router
 module.exports = router;
