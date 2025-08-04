@@ -1,0 +1,26 @@
+<h1><%- title %></h1>
+<%- messages() %>
+<% if (errors) { %>
+<ul class="notice">
+    <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+    <%  }) %>
+</ul>
+<% } %>
+
+<ul>
+    <li>
+        <a href="/message/compose">Create New Message</a>
+    </li>
+    <% if(!archived) { %>
+    <li>
+        <a href="/message/archive">View <%- archivedMessages %> Archived Messages</a>
+    </li>
+    <% } else { %>
+    <li>
+        <a href="/message">Return to inbox(<%- unarchivedMessages %>)</a>
+    </li>
+    <% } %>
+</ul>
+
+<%- inboxTable %>

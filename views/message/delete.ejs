@@ -1,0 +1,30 @@
+<h1><%- title %></h1>
+<%- messages() %>
+<% if (errors) { %>
+<ul class="notice">
+    <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+    <%  }) %>
+</ul>
+<% } %>
+
+<div class="message-view">
+    <dl>
+        <dt>Subject</dt>
+        <dd><%- messageData.message_subject %></dd>
+        <dt>From</dt>
+        <dd><%- messageData.account_firstname %> <%- messageData.account_lastname %> - <%- messageData.account_type%>
+        </dd>
+    </dl>
+    <pre class="message-pane"><%- messageData.message_body %></pre>
+    
+</div>
+<br>
+
+<form action="/message/delete" method="post">
+    <input type="hidden" name="message_id" value="<%- messageData.message_id %>">
+    <div class="button-strip">
+        <a href="/message/view/<%- messageData.message_id %>"><img src="/images/site/back-icon.svg" height="25" alt="Back"></a>
+        <input type="submit" value="DELETE">
+    </div>
+</form>

@@ -1,0 +1,31 @@
+<h1><%- title %></h1>
+<%- messages() %> <%# WK4 TSK2.4 %>
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+  <form class="input-box" id="updateForm" action="/inv/update" method="post">
+    <label>Make<input type="text" value="<%- locals.inv_make %>" placeholder="Ford" name="inv_make" minlength="2" maxlength="50"><span class="fine-print">Required.</span></label>
+    <label>Model<input type="text" value="<%- locals.inv_model %>" placeholder="Mustang" name="inv_model" minlength="2" maxlength="50"><span class="fine-print">Required.</span></label>
+    <label>Year<input type="number" value="<%- locals.inv_year %>" placeholder="2001" name="inv_year" min="1900" max="2030"><span class="fine-print">Required. 1900-2030.</span></label>
+    <label>Description
+        <textarea placeholder="Fancy and red." name="inv_description" minlength="2" maxlength="100" rows="5"><%- locals.inv_description %></textarea><span class="fine-print">Required. 100 characters max.</span>
+    </label>
+    <label>Image<input type="text" value="/images/vehicles/no-image.png" placeholder="red_mustang.jpg" name="inv_image"><span class="fine-print">Required.</span></label>
+    <label>Thumbnail<input type="text" value="/images/vehicles/no-image-tn.png" placeholder="litle_red_mustang.jpg" name="inv_thumbnail"><span class="fine-print">Required.</span></label>
+    <label>Price<input type="number" value="<%- locals.inv_price %>" placeholder="15,000" name="inv_price"><span class="fine-print">Required. Numeric only, no comma.</span></label>
+    <label>Miles<input type="number" value="<%- locals.inv_miles %>" placeholder="100,000" name="inv_miles"><span class="fine-print">Required. Numeric only, no comma.</span></label>
+    <label>Color<input type="text" value="<%- locals.inv_color %>" placeholder="Red" name="inv_color"><span class="fine-print">Required.</span></label>
+    <label>Classification
+        <%- classifications %><span class="fine-print">Required.</span>
+    </label>
+    <input type="submit" name="submit" value="Update Vehicle" disabled>
+    <input type="hidden" name="inv_id"
+    <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+    <% } %>> 
+    <script src="/js/inv-update.js"></script> 
+  </form>

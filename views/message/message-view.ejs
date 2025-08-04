@@ -1,0 +1,31 @@
+<h1><%- title %></h1>
+<%- messages() %>
+<% if (errors) { %>
+<ul class="notice">
+    <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+    <%  }) %>
+</ul>
+<% } %>
+
+<div class="message-view">
+    <dl>
+        <dt>Subject</dt>
+        <dd><%- messageData.message_subject %></dd>
+        <dt>From</dt>
+        <dd><%- messageData.account_firstname %> <%- messageData.account_lastname %> - <%- messageData.account_type%></dd>
+    </dl>
+    <pre class="message-pane"><%- messageData.message_body %></pre>
+    <div class="button-strip">
+        <a href="/message/compose/<%- messageData.message_id %>" title="Reply to this message"><img loading="eager" src="/images/site/reply-icon.svg" height="25" width="25" alt="reply"></a>
+        <button id="readButton" title="Mark this message as read" data-id="<%- messageData.message_id %>"><img loading="eager" src="/images/site/<%- messageData.message_read ? "read" : "unread" %>-icon.svg" height="25" width="25" alt="mark read or unread"></button>
+        <button id="archiveButton" title="Move this message to the archive." data-id="<%- messageData.message_id %>"><img loading="eager" src="/images/site/<%- messageData.message_archived ? "" : "un" %>archived-icon.svg" height="25" width="25" alt="archive or unarchive"></button>
+        <a href="/message/view/<%- messageData.message_id %>/delete" id="deleteButton" title="Permanently delete this message"><img src="/images/site/delete-icon.svg" height="25" width="25" alt="delete"></a>
+    </div>
+</div>
+<br>
+<div class="button-strip">
+    <a href="/message" title="Return to inbox"><img src="/images/site/back-icon.svg" height="25" width="25" alt="reply"></a>
+</div>
+<script src="/js/message-view.js">
+</script>

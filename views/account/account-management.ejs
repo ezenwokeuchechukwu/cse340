@@ -1,0 +1,32 @@
+<h1><%- title %></h1>
+<%- messages() %>
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+  <% if(locals.accountData.account_type == "Client") { %>
+    <h2>Welcome <%- locals.accountData.account_firstname %></h2>
+    <p><a href="/account/update/<%- locals.accountData.account_id %>">Update account information</a></p>
+  <% } else if(locals.accountData.account_type == "Employee" || locals.accountData.account_type == "Admin") { %>
+    <h2>Welcome <%- locals.accountData.account_firstname %> </h2>
+    <p><a href="/account/update/<%- locals.accountData.account_id %>">Update account information</a></p>
+    <h3>Inventory Management</h3>
+    <p><a href="/inv/">Manage Inventory</a></p>
+  <% } %>
+
+  <% if(locals.loggedin) { %>
+    <h2>Messaging Center</h2>
+    <ul>
+      <li><p>You have <%- unread %> new messages</p></li>
+      <li><p>Go to <a href="/message">inbox</a></p></li>
+    </ul>
+
+  
+  
+  <% } %>
+  
+  <h3>You're logged in</h3>
