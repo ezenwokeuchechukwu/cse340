@@ -1,7 +1,10 @@
 <% if (title) { %>
   <h1 class="grid-header"><%= title %></h1>
-<% } else { res.redirect('/') } %>
-
-<%- messages() %>
-
-<%- detail %>
+  
+  <%- messages() %>
+  <a href="/favorites/add/<%= vehicle.inv_id %>" class="btn">Add to Favorites</a>
+  
+  <%- detail %>
+<% } else { %>
+  <p>Invalid vehicle information. Please go back to the <a href="/">home page</a>.</p>
+<% } %>

@@ -1,0 +1,15 @@
+<% include ../partials/header.ejs %>
+
+<h1>My Favorite Vehicles</h1>
+
+<% if (favorites.length > 0) { %>
+  <ul>
+    <% favorites.forEach(fav => { %>
+      <li><strong><%= fav.inv_make %> <%= fav.inv_model %></strong> - $<%= fav.inv_price.toLocaleString() %></li>
+    <% }) %>
+  </ul>
+<% } else { %>
+  <p>You have no favorite vehicles.</p>
+<% } %>
+
+<% include ../partials/footer.ejs %>

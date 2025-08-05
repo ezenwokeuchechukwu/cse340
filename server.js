@@ -19,7 +19,7 @@ const utilities = require("./utilities");
 const accountRoute = require("./routes/accountRoute");
 const cartRoute = require("./routes/cartRoute");
 const bodyParser = require("body-parser");
-
+const favoritesRoute = require("./routes/favoritesRoute");
 /* ***********************
  * Middleware
  *************************/
@@ -70,7 +70,7 @@ app.use(static);
 app.use("/inv", utilities.handleErrors(inventoryRoute));
 app.use("/account", utilities.handleErrors(accountRoute));
 app.use("/cart", utilities.handleErrors(cartRoute));
-
+app.use("/favorites", utilities.handleErrors(favoritesRoute)); // ← ✅ Add this line
 // Index route
 app.get("/", utilities.handleErrors(baseController.buildHome));
 
